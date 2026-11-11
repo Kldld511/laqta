@@ -1,0 +1,95 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <s:String x:Key="S_AppName">لقطة</s:String>
+    <s:String x:Key="S_Home">الرئيسية</s:String>
+    <s:String x:Key="S_Gallery">المعرض</s:String>
+    <s:String x:Key="S_Settings">الإعدادات</s:String>
+
+    <s:String x:Key="S_Ready">جاهز</s:String>
+    <s:String x:Key="S_ReadySub">فعّل الإعادة الفورية أو ابدأ التسجيل</s:String>
+    <s:String x:Key="S_Starting">جاري التجهيز…</s:String>
+    <s:String x:Key="S_StartingSub">يتم اختيار أفضل مُرمّز لكرت الشاشة</s:String>
+    <s:String x:Key="S_Recording">جاري التسجيل</s:String>
+    <s:String x:Key="S_RecordingSub">اضغط إيقاف لحفظ المقطع</s:String>
+    <s:String x:Key="S_ReplayOn">الإعادة الفورية تعمل</s:String>
+    <s:String x:Key="S_ReplayOnSub">آخر {0} محفوظة في الذاكرة وجاهزة للحفظ بضغطة زر</s:String>
+    <s:String x:Key="S_Error">حدث خطأ</s:String>
+    <s:String x:Key="S_NoFfmpeg">FFmpeg غير موجود. ثبّته بالأمر: winget install Gyan.FFmpeg ثم أعد تشغيل التطبيق</s:String>
+
+    <s:String x:Key="S_Record">تسجيل</s:String>
+    <s:String x:Key="S_StopRecord">إيقاف التسجيل</s:String>
+    <s:String x:Key="S_RecordHint">تسجيل فيديو للشاشة</s:String>
+    <s:String x:Key="S_SaveReplay">حفظ الإعادة</s:String>
+    <s:String x:Key="S_SaveReplayHint">احفظ اللي صار قبل شوي</s:String>
+    <s:String x:Key="S_Screenshot">لقطة شاشة</s:String>
+    <s:String x:Key="S_ScreenshotHint">صورة فورية للشاشة</s:String>
+
+    <s:String x:Key="S_InstantReplay">الإعادة الفورية</s:String>
+    <s:String x:Key="S_InstantReplaySub">التطبيق يصوّر بالخلفية دائماً، ولما يصير شي حلو اضغط الزر ويحفظ لك آخر مدة</s:String>
+    <s:String x:Key="S_ReplayLength">مدة الإعادة</s:String>
+    <s:String x:Key="S_Sec30">30 ثانية</s:String>
+    <s:String x:Key="S_Min1">دقيقة</s:String>
+    <s:String x:Key="S_Min2">دقيقتين</s:String>
+    <s:String x:Key="S_Min3">3 دقائق</s:String>
+    <s:String x:Key="S_Min5">5 دقائق</s:String>
+    <s:String x:Key="S_Min10">10 دقائق</s:String>
+
+    <s:String x:Key="S_AudioTracks">مسارات الصوت</s:String>
+    <s:String x:Key="S_AudioTracksSub">كل مصدر يُحفظ في مسار صوتي منفصل داخل نفس ملف الفيديو</s:String>
+    <s:String x:Key="S_TrackGame">صوت اللعبة</s:String>
+    <s:String x:Key="S_TrackMic">المايك</s:String>
+    <s:String x:Key="S_TrackDiscord">ديسكورد</s:String>
+    <s:String x:Key="S_TrackBrowser">المتصفح</s:String>
+    <s:String x:Key="S_Auto">تلقائي (اللعبة المفتوحة)</s:String>
+    <s:String x:Key="S_DefaultMic">المايك الافتراضي</s:String>
+    <s:String x:Key="S_Waiting">في انتظار تشغيل البرنامج…</s:String>
+    <s:String x:Key="S_Off">متوقف</s:String>
+    <s:String x:Key="S_Idle">يبدأ مع التسجيل</s:String>
+
+    <s:String x:Key="S_GallerySub">مقاطعك ولقطاتك المحفوظة</s:String>
+    <s:String x:Key="S_OpenFolder">فتح المجلد</s:String>
+    <s:String x:Key="S_Empty">ما فيه مقاطع للحين — سجّل أول لقطة!</s:String>
+    <s:String x:Key="S_Open">تشغيل</s:String>
+    <s:String x:Key="S_ShowInFolder">إظهار في المجلد</s:String>
+    <s:String x:Key="S_Delete">حذف (سلة المحذوفات)</s:String>
+    <s:String x:Key="S_Video">فيديو</s:String>
+    <s:String x:Key="S_Image">صورة</s:String>
+
+    <s:String x:Key="S_VideoSection">الفيديو</s:String>
+    <s:String x:Key="S_Monitor">الشاشة</s:String>
+    <s:String x:Key="S_Fps">عدد الإطارات (FPS)</s:String>
+    <s:String x:Key="S_Quality">الجودة</s:String>
+    <s:String x:Key="S_QLow">منخفضة (ملفات صغيرة)</s:String>
+    <s:String x:Key="S_QMedium">متوسطة</s:String>
+    <s:String x:Key="S_QHigh">عالية</s:String>
+    <s:String x:Key="S_QUltra">فائقة (ملفات كبيرة)</s:String>
+    <s:String x:Key="S_Cursor">إظهار مؤشر الماوس</s:String>
+    <s:String x:Key="S_AudioSection">الصوت</s:String>
+    <s:String x:Key="S_IncludeMix">إضافة مسار مدموج (كل الأصوات)</s:String>
+    <s:String x:Key="S_IncludeMixSub">يخلي المقطع يشتغل بكل أصواته في أي مشغّل، والمسارات المنفصلة تبقى للمونتاج</s:String>
+    <s:String x:Key="S_OutputSection">مكان الحفظ</s:String>
+    <s:String x:Key="S_Browse">تغيير</s:String>
+    <s:String x:Key="S_HotkeysSection">الاختصارات</s:String>
+    <s:String x:Key="S_HkRecord">بدء / إيقاف التسجيل</s:String>
+    <s:String x:Key="S_HkReplay">حفظ الإعادة الفورية</s:String>
+    <s:String x:Key="S_HkShot">لقطة شاشة</s:String>
+    <s:String x:Key="S_PressKeys">اضغط الأزرار…</s:String>
+    <s:String x:Key="S_HotkeyTaken">الاختصار مستخدم من برنامج ثاني</s:String>
+    <s:String x:Key="S_GeneralSection">عام</s:String>
+    <s:String x:Key="S_Language">اللغة</s:String>
+    <s:String x:Key="S_Tray">الإبقاء بالخلفية عند إغلاق النافذة</s:String>
+    <s:String x:Key="S_Sounds">أصوات التنبيه (لقطة، بدء ونهاية التسجيل)</s:String>
+    <s:String x:Key="S_Encoder">المُرمّز</s:String>
+
+    <s:String x:Key="S_ToastReplaySaved">تم حفظ الإعادة</s:String>
+    <s:String x:Key="S_ToastReplaySaving">جاري حفظ الإعادة…</s:String>
+    <s:String x:Key="S_ToastRecStarted">بدأ التسجيل</s:String>
+    <s:String x:Key="S_ToastRecSaved">تم حفظ التسجيل</s:String>
+    <s:String x:Key="S_ToastRecSaving">جاري حفظ التسجيل…</s:String>
+    <s:String x:Key="S_ToastShotSaved">تم حفظ اللقطة</s:String>
+    <s:String x:Key="S_ToastReplayOff">الإعادة الفورية متوقفة</s:String>
+    <s:String x:Key="S_ToastTray">لقطة يشتغل بالخلفية</s:String>
+    <s:String x:Key="S_TrayShow">فتح لقطة</s:String>
+    <s:String x:Key="S_TrayExit">خروج</s:String>
+</ResourceDictionary>
