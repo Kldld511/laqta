@@ -556,6 +556,10 @@ public partial class MainWindow : Window
         OpenPath(_s.OutputDir);
     }
 
+    private const string SupportUrl = "https://creators.sa/nsun7779";
+
+    private void Support_Click(object sender, RoutedEventArgs e) => OpenPath(SupportUrl);
+
     /// <summary>Renders every page of the window to PNG files (used for docs and UI checks), then exits.</summary>
     public async Task SnapshotAsync(string dir)
     {

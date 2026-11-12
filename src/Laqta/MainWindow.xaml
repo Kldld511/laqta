@@ -107,6 +107,14 @@
                         </StackPanel>
                     </Border>
 
+                    <Button DockPanel.Dock="Bottom" Style="{StaticResource BaseButton}" Margin="0,0,0,10" HorizontalAlignment="Stretch"
+                            Click="Support_Click" ToolTip="{DynamicResource S_SupportTip}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xEB51;" FontFamily="Segoe MDL2 Assets" Foreground="#FF6B8B" VerticalAlignment="Center" Margin="0,0,8,0" />
+                            <TextBlock Text="{DynamicResource S_Support}" Foreground="#FF6B8B" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
                     <StackPanel>
                         <RadioButton x:Name="NavHome" Style="{StaticResource NavButton}" Tag="&#xE80F;" Content="{DynamicResource S_Home}" IsChecked="True" Checked="Nav_Checked" />
                         <RadioButton x:Name="NavGallery" Style="{StaticResource NavButton}" Tag="&#xE8B9;" Content="{DynamicResource S_Gallery}" Checked="Nav_Checked" />
