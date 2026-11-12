@@ -5,6 +5,8 @@
     <s:String x:Key="S_Home">الرئيسية</s:String>
     <s:String x:Key="S_Gallery">المعرض</s:String>
     <s:String x:Key="S_Settings">الإعدادات</s:String>
+    <s:String x:Key="S_Support">ادعمني</s:String>
+    <s:String x:Key="S_SupportTip">التطبيق مجاني، وإذا عجبك تقدر تدعم المطوّر</s:String>
 
     <s:String x:Key="S_Ready">جاهز</s:String>
     <s:String x:Key="S_ReadySub">فعّل الإعادة الفورية أو ابدأ التسجيل</s:String>

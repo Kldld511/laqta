@@ -5,6 +5,8 @@
     <s:String x:Key="S_Home">Home</s:String>
     <s:String x:Key="S_Gallery">Gallery</s:String>
     <s:String x:Key="S_Settings">Settings</s:String>
+    <s:String x:Key="S_Support">Support me</s:String>
+    <s:String x:Key="S_SupportTip">The app is free. If you like it, you can support the developer.</s:String>
 
     <s:String x:Key="S_Ready">Ready</s:String>
     <s:String x:Key="S_ReadySub">Turn on Instant Replay or start recording</s:String>
