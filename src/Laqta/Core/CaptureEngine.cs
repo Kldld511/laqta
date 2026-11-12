@@ -104,6 +104,7 @@ public sealed class CaptureEngine : IDisposable
     private Timer? _pruneTimer;
     private int _exports;
     private volatile bool _stopping;
+    private volatile bool _videoLost;
     private bool _startedForRecording;
 
     public EncoderChoice? Encoder { get; private set; }
@@ -179,12 +180,21 @@ public sealed class CaptureEngine : IDisposable
             };
             lock (_stderr) _stderr.Clear();
             _stopping = false;
+            _videoLost = false;
             var p = new Process { StartInfo = psi, EnableRaisingEvents = true };
             p.ErrorDataReceived += (_, e) =>
             {
                 if (string.IsNullOrWhiteSpace(e.Data)) return;
                 lock (_stderr) { _stderr.Enqueue(e.Data); while (_stderr.Count > 25) _stderr.Dequeue(); }
                 Log.Write("[ffmpeg] " + e.Data);
+                // Windows can revoke screen capture (full-screen switch, resolution change, lock screen).
+                // FFmpeg then keeps writing audio-only segments, so stop it and let OnExited restart the capture.
+                if (!_videoLost && !_stopping && IsVideoLost(e.Data))
+                {
+                    _videoLost = true;
+                    Log.Write("Screen capture lost; restarting the capture");
+                    try { p.Kill(true); } catch { }
+                }
             };
             p.Exited += (_, _) => OnExited(p);
             p.Start();
@@ -271,18 +281,49 @@ public sealed class CaptureEngine : IDisposable
         lock (_stderr) return string.Join(" | ", _stderr.TakeLast(4));
     }
 
+    internal static bool IsVideoLost(string line) =>
+        line.Contains("AcquireNextFrame failed", StringComparison.OrdinalIgnoreCase)
+        || (line.Contains("in#0", StringComparison.Ordinal) && line.Contains("Error during demuxing", StringComparison.OrdinalIgnoreCase));
+
     private void OnExited(Process p)
     {
         if (_stopping || _ff != p) return;
         var tail = StderrTail();
-        Log.Write("FFmpeg exited unexpectedly: " + tail);
+        bool lost = _videoLost;
+        Log.Write((lost ? "FFmpeg stopped after losing the screen: " : "FFmpeg exited unexpectedly: ") + tail);
         Task.Run(async () =>
         {
             await _gate.WaitAsync();
-            try { if (_ff == p) await StopCoreAsync(); }
+            bool wasRecording = false, restarted = false;
+            try
+            {
+                if (_ff == p)
+                {
+                    wasRecording = IsRecording;
+                    await StopCoreAsync();
+                    if (lost) restarted = await TryRestartCoreAsync();
+                }
+            }
             finally { _gate.Release(); }
-            Faulted?.Invoke(tail);
+            if (!restarted || wasRecording) Faulted?.Invoke(tail);
         });
+    }
+
+    /// <summary>Retries starting the pipeline for a few seconds; the screen is usually capturable again shortly after.</summary>
+    private async Task<bool> TryRestartCoreAsync()
+    {
+        for (int attempt = 1; attempt <= 5; attempt++)
+        {
+            await Task.Delay(1500);
+            try
+            {
+                await StartCoreAsync();
+                Log.Write($"Screen capture restarted (attempt {attempt})");
+                return true;
+            }
+            catch (Exception ex) { Log.Write($"Restart attempt {attempt} failed: {ex.Message}"); }
+        }
+        return false;
     }
 
     public async Task StopAsync()
